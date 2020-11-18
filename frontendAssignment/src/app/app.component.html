@@ -1,18 +1,68 @@
+<div class="content">
+    <h2>Notifications</h2>
+    <div *ngFor="let notification of notifications">
+        <div class="notification" (click)="readNotification(notification)">
+            <div class="notification-status">
+                <div *ngIf="notification.status ==='new'" class="new-notification">
+                    O
+                </div>
+            </div>
+            <div class="notification-date">{{notification.date}}</div>
+            <div class="notification-title">{{notification.title}}</div>
+            <div class="notification-angle"><i class="fas fa-angle-down"></i></div>
+        </div>
+        <div *ngIf="readItem === notification.title" class="notification-description">
+            <div class="notification-delete">
+                <div class="delete-button" (click)="deleteNotification(notification)">Delete</div>
+            </div>
+            <div class="description-content" innerHTML="{{notification.desc}}">
+        </div>
+    </div>
+</div>
+
 <style>
     .notification {
         display: flex;
         flex-direction: row;
+        background: white;
+        margin-bottom: 2px;
     }
+    .notification-date {
+        width: 100px;
+        padding: 10px;
+    }
+    .notification-status{
+        width: 30px;
+        padding: 10px;
+    }
+    .notification-title {
+        cursor: pointer;
+        padding: 10px;
+        flex: 1;
+    }
+    .notification-angle {
+        width: 20px;
+        padding: 10px;
+    }
+    .notification-description {
+        display: flex;
+        flex-direction: row;
+        background: white; 
+        padding: 10px;
+        margin-bottom: 5px;
+    }
+    .notification-delete { 
+        width: 130px;
+    }
+    .delete-button {
+        border: 1px solid black;
+        width: 50px; 
+        padding: 1px;
+        cursor: pointer;
+    }
+    .description-content {
 
+    }
 </style>
-
-<div class="content">
- <h2>Mitteilungen</h2>
- <div class="notification" *ngFor="let notification of notifications">
-     <div class="notification-date">{{notification.date}}</div>
-     <div class="notification-title">{{notification.title}}</div>
- </div>
-</div>
-
 
 <router-outlet></router-outlet>
