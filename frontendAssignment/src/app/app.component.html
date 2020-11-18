@@ -1,0 +1,18 @@
+<style>
+    .notification {
+        display: flex;
+        flex-direction: row;
+    }
+
+</style>
+
+<div class="content">
+ <h2>Mitteilungen</h2>
+ <div class="notification" *ngFor="let notification of notifications">
+     <div class="notification-date">{{notification.date}}</div>
+     <div class="notification-title">{{notification.title}}</div>
+ </div>
+</div>
+
+
+<router-outlet></router-outlet>
