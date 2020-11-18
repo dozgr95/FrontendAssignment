@@ -8,22 +8,20 @@ export interface notification{
     status: string
 }
 
-const dateSort = (a: string,b: string): number => {
-    // e.g. Thu, 07 Nov 2019 06:43:32 CET +01:00
+const parseDate = (timestamp: string) => {
     let splitter: string[] = []
-    let dateA
-    let dateB
-    splitter = a.split(' CET +01:00')
-    dateA = Date.parse(splitter[0])
-    splitter = b.split(' CET +01:00')
-    dateB = Date.parse(splitter[0]) 
-    return dateB - dateA
+    splitter = timestamp.split(' CET +01:00')
+    return Date.parse(splitter[0])
 }
 
 export const loadNotifications = () => {
     let notifications: notification[] = notificationsData.notifications;
-    notifications.sort((a,b) => dateSort(a.date,b.date))
+    notifications.sort((a,b) => parseDate(b.date) - parseDate(a.date))
     notifications = notifications.filter(notification => notification.active)
+    notifications.map(notification => {
+        let date = new Date(parseDate(notification.date))
+        notification.date = date.toLocaleDateString()
+    })
     return notifications
-}
+}   
   
