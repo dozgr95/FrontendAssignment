@@ -1,2 +1,15 @@
-<a routerLink="/notifications" routerLinkActive="active">Mehr ehrfahren</a>
 
+<div *ngFor="let preview of notifications">
+    <div *ngIf="preview.status === 'new'" class="notification">
+        <div class="info-circle">
+            <i class="fas fa-info-circle"></i>
+        </div>
+        <div class="notification-text">
+            {{preview.title}}
+        </div>
+        <div class="notification-options">
+            <a routerLink="/notifications" routerLinkActive="active">Mehr ehrfahren</a>
+            <i (click)="hideNotification(preview)" class="fas fa-times-circle"></i>
+        </div>
+    </div>
+</div>

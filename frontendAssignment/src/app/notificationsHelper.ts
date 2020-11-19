@@ -1,4 +1,4 @@
-import * as notificationsData from '../../assets/notifications.json';
+import * as notificationsData from '../assets/notifications.json';
 
 export interface notification{
     date: string
@@ -24,4 +24,3 @@ export const loadNotifications = () => {
     })
     return notifications
 }   
-  
