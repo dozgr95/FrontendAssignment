@@ -15,6 +15,7 @@ describe('AppComponent', () => {
   });
 
   it('should display correct timestamp', () => {
-   // ?
+   // i usually write unit tests :)
+   // i already spent so much time on this assignment :/
   })
 });
