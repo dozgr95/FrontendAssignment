@@ -15,6 +15,7 @@ export class AppComponent {
   deleteNotification(deleteNotification: notification) {
     const index = this.notifications.findIndex(notification => notification.title === deleteNotification.title)
     this.notifications.splice(index, 1)
+    this.readItem = ''
   }
 
   readNotification(notification: notification) {

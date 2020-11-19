@@ -1,10 +1,10 @@
 <div class="content">
     <h2>Notifications</h2>
-    <div *ngFor="let notification of notifications">
+    <div class="notification-list" *ngFor="let notification of notifications">
         <div class="notification" (click)="readNotification(notification)">
             <div class="notification-status">
                 <div *ngIf="notification.status ==='new'" class="new-notification">
-                    O
+                    <i class="fas fa-circle"></i>
                 </div>
             </div>
             <div class="notification-date">{{notification.date}}</div>
@@ -21,47 +21,57 @@
 </div>
 
 <style>
+    .notification-list {
+        font-family: Helvetica;
+        font-size: .875rem;
+    }
     .notification {
         display: flex;
         flex-direction: row;
         background: white;
         margin-bottom: 2px;
+        padding: 20px 10px;
     }
     .notification-date {
-        width: 100px;
-        padding: 10px;
+        width: 80px;
+        padding: 0 5px;
     }
     .notification-status{
-        width: 30px;
-        padding: 10px;
+        width: 20px;
+        padding: 0 5px;
     }
     .notification-title {
         cursor: pointer;
-        padding: 10px;
         flex: 1;
     }
     .notification-angle {
         width: 20px;
-        padding: 10px;
+        cursor: pointer;
     }
     .notification-description {
         display: flex;
         flex-direction: row;
         background: white; 
-        padding: 10px;
-        margin-bottom: 5px;
+        margin-bottom: 6px;
     }
-    .notification-delete { 
-        width: 130px;
+    .notification-delete {
+        width: 120px;
+        padding: 20px 10px 0 20px;
     }
     .delete-button {
         border: 1px solid black;
-        width: 50px; 
-        padding: 1px;
+        width: 90px; 
+        padding: 10px 0 5px 0;
         cursor: pointer;
+        text-align: center;
+        font-weight: bold;
     }
     .description-content {
-
+        flex: 1 1 calc(100% - 140px);
+        padding: 10px 80px 0 0;
+    }
+    .fa-circle {
+        color: #48a6f5;
     }
 </style>
 
