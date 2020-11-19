@@ -13,4 +13,8 @@ describe('AppComponent', () => {
       ],
     }).compileComponents();
   });
+
+  it('should display correct timestamp', () => {
+   // ?
+  })
 });

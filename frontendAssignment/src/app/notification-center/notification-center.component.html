@@ -1,0 +1,76 @@
+<div class="content">
+    <h2>Notifications</h2>
+    <div class="notification-list" *ngFor="let notification of notifications">
+        <div class="notification" (click)="readNotification(notification)">
+            <div class="notification-status">
+                <div *ngIf="notification.status ==='new'" class="new-notification">
+                    <i class="fas fa-circle"></i>
+                </div>
+            </div>
+            <div class="notification-date">{{notification.date}}</div>
+            <div class="notification-title">{{notification.title}}</div>
+            <div class="notification-angle"><i class="fas fa-angle-down"></i></div>
+        </div>
+        <div *ngIf="readItem === notification.title" class="notification-description">
+            <div class="notification-delete">
+                <div class="delete-button" (click)="deleteNotification(notification)">Delete</div>
+            </div>
+            <div class="description-content" innerHTML="{{notification.desc}}">
+        </div>
+    </div>
+</div>
+
+<style>
+    .notification-list {
+        font-family: Helvetica;
+        font-size: .875rem;
+    }
+    .notification {
+        display: flex;
+        flex-direction: row;
+        background: white;
+        margin-bottom: 2px;
+        padding: 20px 10px;
+    }
+    .notification-date {
+        width: 80px;
+        padding: 0 5px;
+    }
+    .notification-status{
+        width: 20px;
+        padding: 0 5px;
+    }
+    .notification-title {
+        cursor: pointer;
+        flex: 1;
+    }
+    .notification-angle {
+        width: 20px;
+        cursor: pointer;
+    }
+    .notification-description {
+        display: flex;
+        flex-direction: row;
+        background: white; 
+        margin-bottom: 6px;
+    }
+    .notification-delete {
+        width: 120px;
+        padding: 20px 10px 0 20px;
+    }
+    .delete-button {
+        border: 1px solid black;
+        width: 90px; 
+        padding: 10px 0 5px 0;
+        cursor: pointer;
+        text-align: center;
+        font-weight: bold;
+    }
+    .description-content {
+        flex: 1 1 calc(100% - 140px);
+        padding: 10px 80px 0 0;
+    }
+    .fa-circle {
+        color: #48a6f5;
+    }
+</style>
