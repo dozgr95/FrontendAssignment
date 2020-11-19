@@ -1,3 +1,5 @@
+/* Module for handling notifications - adapt to json file */
+
 import * as notificationsData from '../assets/notifications.json';
 
 export interface notification{
@@ -20,6 +22,7 @@ const parseDate = (timestamp: string) => {
     }
 }
 
+/* load data from json and prepare for component */
 export const loadNotifications = () => {
     let notifications: notification[] = notificationsData.notifications;
     notifications.sort((a,b) => parseDate(b.date) - parseDate(a.date))
