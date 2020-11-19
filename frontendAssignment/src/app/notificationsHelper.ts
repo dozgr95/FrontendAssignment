@@ -11,7 +11,13 @@ export interface notification{
 const parseDate = (timestamp: string) => {
     let splitter: string[] = []
     splitter = timestamp.split(' CET +01:00')
-    return Date.parse(splitter[0])
+    if(splitter[1] === '') {
+        console.log('return parsed', splitter[0])
+        return Date.parse(splitter[0])
+    } else {
+        console.log('return same', timestamp)
+        return Date.parse(timestamp)
+    }
 }
 
 export const loadNotifications = () => {

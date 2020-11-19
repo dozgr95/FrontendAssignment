@@ -8,12 +8,14 @@ import { loadNotifications, notification } from '../notificationsHelper';
   styleUrls: ['./strategy-report.component.sass']
 })
 export class StrategyReportComponent implements OnInit {
-  notifications: notification[] = []
+  notificationsPreview: notification[] = []
 
   constructor() { }
 
   ngOnInit(): void {
-    this.notifications = loadNotifications();
+    if(this.notificationsPreview.length === 0) {
+      this.notificationsPreview = loadNotifications();
+    }    
   }
 
   hideNotification(notification: notification) {
